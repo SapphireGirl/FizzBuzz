@@ -1,6 +1,4 @@
 using FizzBuzz.Core.Models;
-using FizzBuzz.Core.Repositories;
-using FizzBuzz.Core.Repositories.EntityFramework;
 using FizzBuzz.Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,12 +12,6 @@ app.MapGet("/", () => "Hello World!");
 
 builder.Services.RegisterRepos();
 builder.Services.RegisterLogging();
-
-// Add Registration to the Container
-
-builder.Services.AddTransient<IRepository, EFRepository>();
-
-
 
 app.Run();
 
